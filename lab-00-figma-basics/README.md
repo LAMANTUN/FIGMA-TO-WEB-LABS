@@ -92,8 +92,8 @@ When you open a Figma file, you will see 4 main areas:
 ```
 COLORS:
 - Background: #______
-- Primary text: #______
-- Secondary text: #______
+- Primary text: #9BA4ED
+- Secondary text: #FFFFFF
 - Button color: #______
 - Accent color: #______
 ```
@@ -111,7 +111,7 @@ COLORS:
 **Write down in your notes:**
 ```
 TYPOGRAPHY:
-- Heading font: ______, weight: ______, size: ______
+- Heading font: SF Pro Display, weight: 162, size: 63
 - Paragraph font: ______, weight: ______, size: ______
 - Button text font: ______, weight: ______, size: ______
 ```
