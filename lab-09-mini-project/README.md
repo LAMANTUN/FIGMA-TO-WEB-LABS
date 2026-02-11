@@ -1,17 +1,38 @@
-# Lab 08: Mini Project — Integrate a Complete Figma Landing Page
+# Lab 09: Mini Project — From Figma to Code: Complete Landing Page Integration
 
 **Difficulty**: ⭐⭐⭐ Intermediate
 **Time**: 60–90 minutes
-**Concepts**: All previous concepts combined — HTML structure, CSS styling, Flexbox, responsive design, components, JavaScript interactions
+**Concepts**: Figma Dev Mode, design-to-code workflow, extracting design tokens, all previous HTML/CSS/JS concepts combined
 
 ## 🎯 Project Goals
 
-- Apply **everything** you learned in Lab 00 through Lab 06
-- Integrate a full Figma page from scratch
-- Write clean, organized, and commented code
-- Work autonomously with minimal instructions
+- **Integrate a real Figma design** into a fully working web page from scratch
+- Learn to use **Figma Dev Mode** to inspect spacing, colors, fonts, and component properties
+- Extract **design tokens** (colors, typography, spacing) directly from a Figma file
+- Apply **everything** you learned in Lab 01 through Lab 08
+- Work autonomously with minimal instructions, just like a real developer-designer workflow
+## 📚 Course Elements Covered
 
-## 📋 Project Overview
+| Course Module | Topics Applied in This Lab |
+|---|---|
+| [01 — Design Fundamentals](../course-01-design-fundamentals/) | All CRAP principles applied to a real design: contrast, repetition, alignment, proximity |
+| [02 — Figma for Developers](../course-02-figma-for-developers/) | Full Dev Mode workflow: inspect, extract colors/fonts/spacing, export assets, read components |
+| [03 — Design-to-Code Workflow](../course-03-design-to-code-workflow/) | Complete 7-step pipeline: Receive → Audit → Extract → Plan → Build → Review → Refine |
+| [04 — Design Systems](../course-04-design-systems/) | Atomic Design in practice, design tokens as CSS variables, component-based architecture |
+## � Figma-to-Code Workflow
+
+This is the **only lab** where you work directly from a Figma file. Follow this workflow:
+
+### The 7-Step Pipeline
+1. **Receive** — Open the Figma file and get an overview
+2. **Audit** — Identify all sections, components, colors, fonts, and spacing
+3. **Extract** — Copy exact values from Figma Dev Mode (hex colors, px sizes, font names)
+4. **Plan** — Map Figma layers to HTML structure; list CSS variables needed
+5. **Build** — Code the HTML, CSS, and JS section by section
+6. **Review** — Compare your page side-by-side with the Figma design
+7. **Refine** — Fix pixel differences, responsive issues, and clean up code
+
+## �📋 Project Overview
 
 You are building a **landing page** for a fictional product called **FocusFlow** — a productivity app for students. The page includes:
 
@@ -23,25 +44,42 @@ You are building a **landing page** for a fictional product called **FocusFlow**
 
 ## 🛠️ Setup
 
-### Step 1: Review the Design
+### Step 1: Open and Inspect the Figma Design
 
 1. Open the **official Figma file** provided by your instructor:
    👉 **[Open Figma Design File](https://www.figma.com/site/ZM8Dxe6DvfkniEvcUHrZM7/Modern--Clean-SaaS-Company--Community-?node-id=0-1&p=f&t=UfKo5dNuXvMspRGZ-0)**
 2. Click **"Duplicate to your drafts"** to get your own editable copy
 3. Switch to **Dev Mode** (toggle in top-right) to inspect elements
-4. Take 5 minutes to analyze the layout
-5. Write down: colors, fonts, sections, components
+4. **Spend 10 minutes analyzing the design before writing any code:**
+   - Click on elements to see their exact colors, fonts, and spacing in the right panel
+   - Note the padding, margin, and gap values
+   - Identify which fonts and weights are used
+   - Look at how components are structured (buttons, cards, etc.)
+5. Write down your extracted design tokens:
+
+```
+MY EXTRACTED TOKENS:
+- Background:  #______
+- Text color:  #______
+- Primary:     #______
+- Secondary:   #______
+- Heading font: ____________ (weight: ___)
+- Body font:    ____________ (weight: ___)
+- Base spacing:  ___px
+- Border radius: ___px
+```
 
 > 💡 You can also use the HTML reference in `../course-02-figma-for-developers/design/reference-landing-page.html` as a visual guide.
 
-### Step 2: Plan Your Approach
+### Step 2: Plan Your Approach (Using Figma Insights)
 
-Before coding, answer these questions:
-- [ ] What HTML sections will I need?
-- [ ] What CSS variables will I define?
-- [ ] What components will I reuse (buttons, cards)?
-- [ ] What needs to be responsive?
-- [ ] What JavaScript interaction will I add?
+Before coding, answer these questions by inspecting the Figma file:
+- [ ] What HTML sections do I see in the Figma layers panel?
+- [ ] What colors and fonts does the design use? (extract exact values)
+- [ ] What components are reused (buttons, cards)? What are their variants?
+- [ ] What spacing values are consistent across the design?
+- [ ] Which sections need to be responsive? (check mobile frame if available)
+- [ ] What JavaScript interaction would enhance the page?
 
 ### Step 3: Open the Starter Files
 
@@ -52,14 +90,26 @@ Files provided:
 
 ## 📝 Step-by-Step Instructions
 
-### Step 1: Build the HTML (15 minutes)
+### Step 1: Extract Design Tokens from Figma (10 minutes)
+
+Use Figma Dev Mode to extract:
+1. All color values (backgrounds, text, accents, borders)
+2. Font families and weights
+3. Font sizes for each heading level and body text
+4. Spacing values (padding, margins, gaps)
+5. Border radius values
+6. Box shadows (if any)
+
+### Step 2: Build the HTML Structure (15 minutes)
 
 1. Create the full semantic HTML structure
 2. Use `<header>`, `<main>`, `<section>`, `<footer>`
 3. Add HTML comments before each section
 4. Include all content: headings, text, buttons, image placeholders
 
-### Step 2: Set Up CSS Variables (5 minutes)
+### Step 3: Set Up CSS Variables from Figma Tokens (5 minutes)
+
+Use the **exact values** you extracted from Figma:
 
 ```css
 :root {
@@ -73,39 +123,42 @@ Files provided:
 }
 ```
 
-### Step 3: Style Typography and Colors (10 minutes)
+### Step 4: Style Typography and Colors from Figma (10 minutes)
 
 - Import Google Fonts
 - Apply body font, background, text color
 - Style headings, paragraphs, links
 
-### Step 4: Build the Layout with Flexbox (15 minutes)
+### Step 5: Build the Layout with Flexbox (15 minutes)
 
 - Header: logo left, links center, button right
 - Hero: text left, image right
 - Features: 3 cards in a row
 - Pricing: centered box
 
-### Step 5: Make It Responsive (10 minutes)
+### Step 6: Make It Responsive (10 minutes)
 
 - Mobile: everything stacked (column)
 - Desktop (768px+): side-by-side layouts
 
-### Step 6: Style Components (10 minutes)
+### Step 7: Style Components to Match Figma (10 minutes)
 
 - Buttons (primary, secondary)
 - Cards (border, padding, shadow)
 - Use BEM naming
 
-### Step 7: Add JavaScript Interaction (10 minutes)
+### Step 8: Add JavaScript Interaction (10 minutes)
 
 Choose at least ONE:
 - CTA button shows an alert or modal
 - Mobile menu toggle
 - FAQ accordion
 
-### Step 8: Review and Clean Up (10 minutes)
+### Step 9: Compare with Figma and Clean Up (10 minutes)
 
+- Open Figma and your browser side by side
+- Compare each section pixel-by-pixel
+- Fix any color, spacing, or font mismatches
 - Remove unused code
 - Add missing comments
 - Check responsive behavior
@@ -115,38 +168,45 @@ Choose at least ONE:
 
 | Feature | Status |
 |---------|--------|
+| Design tokens extracted from Figma | Required |
 | Semantic HTML structure | Required |
-| CSS variables for colors and fonts | Required |
-| Google Fonts imported | Required |
+| CSS variables for colors and fonts (from Figma) | Required |
+| Google Fonts imported (matching Figma) | Required |
 | Flexbox layout | Required |
 | Responsive (mobile + desktop) | Required |
 | At least 2 button variants | Required |
 | Cards for features section | Required |
 | At least 1 JS interaction | Required |
 | HTML comments on every section | Required |
+| Visual match with Figma design | Required |
 | Clean, readable code | Required |
 
 ## ✅ Evaluation Criteria
 
 Your project will be evaluated on:
 
-1. **Structure** (25%)
+1. **Figma Integration** (20%)
+   - Design tokens correctly extracted
+   - Colors, fonts, and spacing match the Figma file
+   - Evidence of using Dev Mode (correct values, not approximations)
+
+2. **Structure** (20%)
    - Correct semantic HTML
    - Well-organized sections
    - HTML comments
 
-2. **Styling** (30%)
+3. **Styling** (25%)
    - CSS variables used
    - Colors and fonts match design
    - Consistent spacing
    - Components use BEM naming
 
-3. **Layout** (25%)
+4. **Layout** (20%)
    - Flexbox used correctly
    - Responsive with media query
    - No layout bugs
 
-4. **Interactivity** (10%)
+4. **Interactivity** (5%)
    - At least 1 JS interaction works
    - addEventListener used
    - No console errors
@@ -160,8 +220,8 @@ Your project will be evaluated on:
 
 - [ ] Page loads without errors (check console)
 - [ ] All sections are visible and structured
-- [ ] Colors match the design
-- [ ] Fonts are loaded from Google Fonts
+- [ ] Colors match the Figma design exactly (no approximations)
+- [ ] Fonts are loaded from Google Fonts (matching Figma)
 - [ ] Buttons have hover effects
 - [ ] Layout works on mobile (< 768px)
 - [ ] Layout works on desktop (≥ 768px)
@@ -188,7 +248,8 @@ Use any resources from previous labs:
 
 ## 🤔 Questions to Ask Yourself
 
-- Does my HTML structure match the Figma layout?
+- Does my HTML structure match the Figma layout layers?
+- Am I using the exact CSS values from Figma Dev Mode?
 - Am I using CSS variables for all colors and fonts?
 - Is every flex container commented to explain its purpose?
 - Does the page look good on both mobile and desktop?
@@ -224,12 +285,13 @@ This is your final exercise. You've learned how to go from a Figma design to a f
 - Lab 00: Reading Figma designs
 - Lab 01: Semantic HTML structure
 - Lab 02: CSS colors and typography
-- Lab 03: Flexbox layouts
-- Lab 04: Responsive design
-- Lab 05: Reusable UI components
-- Lab 06: JavaScript interactivity
-- Lab 07: CSS to Sass/SCSS
-- Lab 08: Full page integration ← **You are here!**
+- Lab 03: CSS positioning and display
+- Lab 04: Flexbox layouts
+- Lab 05: Responsive design
+- Lab 06: Reusable UI components
+- Lab 07: JavaScript interactivity
+- Lab 08: CSS to Sass/SCSS
+- Lab 09: Full page integration ← **You are here!**
 
 **Next steps:**
 - Push your code to GitHub
@@ -241,5 +303,5 @@ Good luck! 🚀
 
 ---
 
-**Previous**: [Lab 07: CSS to Sass/SCSS](../lab-07-sass-scss/) ←
+**Previous**: [Lab 08: CSS to Sass/SCSS](../lab-08-sass-scss/) ←
 **[Back to Course Home](../README.md)**

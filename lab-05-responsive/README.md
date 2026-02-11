@@ -1,18 +1,26 @@
-# Lab 04: Responsive Design — Mobile-First from Figma
+# Lab 05: Responsive Design — Mobile-First Approach
 
-**Difficulty**: ⭐⭐ Beginner to Intermediate
-**Time**: 30–40 minutes
+**Difficulty**: ⭐⭐ Medium
+**Time**: 35–45 minutes
 **Concepts**: Media queries, mobile-first approach, breakpoints, responsive images, viewport meta tag
 
 ## 🎯 Learning Objectives
 
-- Understand the difference between desktop and mobile Figma frames
+- Understand the difference between mobile and desktop layouts
 - Apply a mobile-first CSS strategy
 - Write a media query with a single breakpoint (768px)
 - Make images and text scale correctly on all screen sizes
 - Test responsive behavior using browser DevTools
 
-## 📋 Exercise Description
+## � Course Elements Covered
+
+| Course Module | Topics Applied in This Lab |
+|---|---|
+| [01 — Design Fundamentals](../course-01-design-fundamentals/) | Contrast (adapting hierarchy for smaller screens), whitespace (adjusting spacing per breakpoint) |
+| [02 — Figma for Developers](../course-02-figma-for-developers/) | Reading mobile vs desktop Figma frames, extracting breakpoint-specific values |
+| [03 — Design-to-Code Workflow](../course-03-design-to-code-workflow/) | Step 5 — Build: responsive phase (mobile-first, then media queries) |
+
+## �📋 Exercise Description
 
 You will take a simple page and make it **responsive**: it should look correct on mobile phones AND desktop screens, using only ONE breakpoint.
 
@@ -22,12 +30,12 @@ You will take a simple page and make it **responsive**: it should look correct o
 
 ### Step 1: Open the Starter Files
 
-1. Open `lab-04-responsive/index.html` and `lab-04-responsive/style.css`
+1. Open `lab-05-responsive/index.html` and `lab-05-responsive/style.css`
 2. The HTML and base CSS are provided
 
-### Step 2: Open the Reference
+### Step 2: Study the Layout Specification
 
-1. Study the Figma design — look for **two frames**: one narrow (mobile) and one wide (desktop)
+1. Your page must support **two layouts**: one for narrow screens (mobile) and one for wide screens (desktop)
 2. Note the differences: stacked vs side-by-side layout
 
 ### Step 3: Preview and Test
@@ -38,9 +46,9 @@ You will take a simple page and make it **responsive**: it should look correct o
 
 ## 📝 Step-by-Step Instructions
 
-### Step 1: Understand Desktop vs Mobile in Figma
+### Step 1: Understand Desktop vs Mobile Layouts
 
-Designers provide different frames for different screen sizes:
+Designers provide different layouts for different screen sizes:
 
 ```
 MOBILE (375px wide)          DESKTOP (1440px wide)
@@ -284,10 +292,10 @@ You've successfully completed this exercise when:
 - ✅ One media query at 768px switches to desktop layout
 - ✅ No horizontal scroll on any screen size
 - ✅ Images are responsive
-- ✅ The layout matches both the mobile and desktop Figma frames
+- ✅ The layout matches both the mobile and desktop specifications
 
 ---
 
-**Previous**: [Lab 03: Flexbox Layout](../lab-03-flexbox-layout/) ←
-**Next**: [Lab 05: UI Components](../lab-05-ui-components/) →
+**Previous**: [Lab 04: Flexbox Layout](../lab-04-flexbox-layout/) ←
+**Next**: [Lab 06: UI Components](../lab-06-ui-components/) →
 **[Back to Course Home](../README.md)**

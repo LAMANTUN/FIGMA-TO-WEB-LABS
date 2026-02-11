@@ -1,20 +1,28 @@
-# Lab 03: Flexbox Layout — Reproduce a Figma Layout with Flexbox
+# Lab 04: Flexbox Layout — Build Multi-Column Layouts with Flexbox
 
-**Difficulty**: ⭐⭐ Beginner to Intermediate
-**Time**: 30–40 minutes
-**Concepts**: Flexbox, display flex, flex-direction, justify-content, align-items, gap, flex property
+**Difficulty**: ⭐⭐ Medium
+**Time**: 35–45 minutes
+**Concepts**: Flexbox, display flex, flex-direction, justify-content, align-items, gap, flex property, flex-wrap
 
 ## 🎯 Learning Objectives
 
 - Understand the Flexbox model (main axis, cross axis)
 - Use `display: flex` to create horizontal and vertical layouts
 - Use `gap` instead of margins for spacing between flex items
-- Reproduce a multi-column layout from a Figma design
+- Reproduce a multi-column layout from a design specification
 - Comment each flexbox rule to explain its purpose
 
-## 📋 Exercise Description
+## � Course Elements Covered
 
-You will use Flexbox to recreate a page layout from Figma with:
+| Course Module | Topics Applied in This Lab |
+|---|---|
+| [01 — Design Fundamentals](../course-01-design-fundamentals/) | Alignment (grid/flex snap), repetition (equal card layouts), proximity (gap between items) |
+| [02 — Figma for Developers](../course-02-figma-for-developers/) | Auto Layout → Flexbox mapping (direction, gap, padding, alignment) |
+| [03 — Design-to-Code Workflow](../course-03-design-to-code-workflow/) | Step 5 — Build: layout phase, structure → style → layout order |
+
+## �📋 Exercise Description
+
+You will use Flexbox to recreate a page layout with:
 - A **header** with logo on the left and navigation on the right
 - A **hero section** with text and image side by side
 - A **features section** with 3 cards in a row
@@ -25,13 +33,23 @@ You will use Flexbox to recreate a page layout from Figma with:
 
 ### Step 1: Open the Starter Files
 
-1. Open `lab-03-flexbox-layout/index.html` and `lab-03-flexbox-layout/style.css`
+1. Open `lab-04-flexbox-layout/index.html` and `lab-04-flexbox-layout/style.css`
 2. The HTML is ready — you will focus on the CSS
 
-### Step 2: Open the Reference
+### Step 2: Study the Target Layout
 
-1. Open `../course-02-figma-for-developers/design/reference-landing-page.html` in your browser or study the Figma design
-2. Pay attention to how elements are **aligned** and **spaced**
+Your goal is to achieve this layout:
+```
+┌─────────────────────────────────────┐
+│ Logo            Home  Features  Contact │
+├─────────────────────────────────────┤
+│ Heading          │ Image               │
+│ Subtitle         │                     │
+│ [Button]         │                     │
+├─────────────────────────────────────┤
+│ [Card 1]    [Card 2]    [Card 3]        │
+└─────────────────────────────────────┘
+```
 
 ### Step 3: Preview
 
@@ -182,7 +200,7 @@ Your page should:
 - [ ] Spacing comes from `gap`, not margin hacks
 - [ ] Every `display: flex` has a comment explaining its purpose
 - [ ] No horizontal scroll on the page
-- [ ] Layout matches the Figma design
+- [ ] Layout matches the target specification
 
 ## 🎓 Key Concepts
 
@@ -244,11 +262,11 @@ You've successfully completed this exercise when:
 - ✅ All layouts use Flexbox (no floats, no absolute positioning)
 - ✅ `gap` is used for spacing between items
 - ✅ Each flex rule has a comment explaining its purpose
-- ✅ The layout matches the Figma reference design
+- ✅ The layout matches the target specification
 - ✅ You can explain what each flex property does
 
 ---
 
-**Previous**: [Lab 02: CSS Basics](../lab-02-css-basics/) ←
-**Next**: [Lab 04: Responsive Design](../lab-04-responsive/) →
+**Previous**: [Lab 03: CSS Positioning](../lab-03-css-positioning/) ←
+**Next**: [Lab 05: Responsive Design](../lab-05-responsive/) →
 **[Back to Course Home](../README.md)**

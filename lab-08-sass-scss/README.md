@@ -1,6 +1,6 @@
-# Lab 07 — CSS to Sass/SCSS
+# Lab 08 — CSS to Sass/SCSS
 
-> **Difficulty:** Beginner to Intermediate · **Time:** 40–50 min · **Prerequisites:** Lab 02–05 completed
+> **Difficulty:** ⭐⭐ Medium · **Time:** 40–50 min · **Prerequisites:** Lab 02–06 completed
 
 ---
 
@@ -24,6 +24,15 @@ By the end of this lab you will be able to:
 6. Write **mixins** for reusable style patterns
 7. Use **`@extend`** for shared styles and understand when to use it vs mixins
 8. Compile SCSS to CSS using a VS Code extension (no Node.js required)
+
+---
+
+## 📚 Course Elements Covered
+
+| Course Module | Topics Applied in This Lab |
+|---|---|
+| [03 — Design-to-Code Workflow](../course-03-design-to-code-workflow/) | Step 3 — Extract: design tokens become SCSS variables; Step 7 — Refine: refactoring CSS into organized SCSS |
+| [04 — Design Systems](../course-04-design-systems/) | Design tokens in depth (variables, spacing scales), component organization (partials per component), style guide structure |
 
 ---
 
@@ -82,7 +91,7 @@ We keep this course dependency-free. Use the **Live Sass Compiler** VS Code exte
 
 ## Step 1 — Understand the Starting CSS
 
-Open the provided `style.css` file in this folder. It contains the component styles from Lab 05:
+Open the provided `style.css` file in this folder. It contains the component styles from Lab 06:
 
 ```css
 /* Current: plain CSS with custom properties */
@@ -228,7 +237,7 @@ As your project grows, one giant SCSS file becomes unwieldy. **Partials** let yo
 A partial is an SCSS file whose name starts with `_` (underscore):
 
 ```
-lab-07-sass-scss/
+lab-08-sass-scss/
 ├── scss/
 │   ├── _variables.scss    ← design tokens
 │   ├── _base.scss         ← reset, body, global styles
@@ -521,7 +530,7 @@ str-index('Source Sans', 'Sans')  // → 8
 At this point, your folder structure should look like:
 
 ```
-lab-07-sass-scss/
+lab-08-sass-scss/
 ├── scss/
 │   ├── _variables.scss     ← $colors, $spacing, $fonts, $radii
 │   ├── _mixins.scss        ← flex-center, button-variant, respond-to
@@ -540,7 +549,7 @@ lab-07-sass-scss/
 Check that:
 - [ ] `index.html` links to `css/main.css` (the compiled output)
 - [ ] Live Sass Compiler is watching
-- [ ] The page looks **identical** to Lab 05 — the compiled CSS should produce the same result
+- [ ] The page looks **identical** to Lab 06 — the compiled CSS should produce the same result
 
 ---
 
@@ -584,5 +593,5 @@ Check that:
 
 ---
 
-*Previous → [Lab 06: JavaScript Interactions](../lab-06-javascript-interactions/README.md)*
-*Next → [Lab 08: Mini Project](../lab-08-mini-project/README.md)*
+*Previous → [Lab 07: JavaScript Interactions](../lab-07-javascript-interactions/README.md)*
+*Next → [Lab 09: Mini Project](../lab-09-mini-project/README.md)*

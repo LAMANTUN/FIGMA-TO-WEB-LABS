@@ -1,7 +1,7 @@
-# Lab 05: UI Components — Build Reusable Pieces from Figma
+# Lab 06: UI Components — Build Reusable Pieces
 
-**Difficulty**: ⭐⭐ Intermediate
-**Time**: 30–40 minutes
+**Difficulty**: ⭐⭐ Medium
+**Time**: 35–45 minutes
 **Concepts**: Component thinking, BEM naming, CSS modifiers, reusability, design system basics
 
 ## 🎯 Learning Objectives
@@ -10,27 +10,35 @@
 - Use BEM-like naming convention for CSS classes
 - Create modifiers for component variants (primary, secondary, etc.)
 - Build 3 core UI components: Button, Card, Input
-- Understand how designers think about components in Figma
+- Understand how component-based thinking works in modern web development
 
-## 📋 Exercise Description
+## � Course Elements Covered
+
+| Course Module | Topics Applied in This Lab |
+|---|---|
+| [01 — Design Fundamentals](../course-01-design-fundamentals/) | Repetition (consistent component styles), contrast (button variants, hover states) |
+| [02 — Figma for Developers](../course-02-figma-for-developers/) | Components & variants structure, inspecting component properties in Dev Mode |
+| [04 — Design Systems](../course-04-design-systems/) | Atomic Design (atoms → molecules), BEM naming as a convention, component library thinking |
+
+## �📋 Exercise Description
 
 You will build a small **component library** — a collection of reusable UI pieces that can be used anywhere on a page. Each component should have a base style and at least one variant.
 
-> 💡 In Figma, designers create "components" with variants. As developers, we do the same with CSS classes and modifiers.
+> 💡 In design systems, UI elements are built as reusable "components" with variants. As developers, we do the same with CSS classes and modifiers.
 
 ## 🛠️ Setup
 
 ### Step 1: Open the Starter Files
 
-1. Open `lab-05-ui-components/index.html` and `lab-05-ui-components/style.css`
+1. Open `lab-06-ui-components/index.html` and `lab-06-ui-components/style.css`
 2. The HTML shows all 3 components — you will style them
 
-### Step 2: Study the Figma Components
+### Step 2: Study the Component Specifications
 
-In the Figma file, look for a "Components" page or frame that shows:
-- Buttons in different colors/sizes
-- Cards with title, text, and action
-- Input fields with labels
+You need to build these components:
+- **Buttons**: Primary (blue), Secondary (lighter blue), Ghost (transparent with border)
+- **Cards**: White background, border, rounded corners, with title + text + action
+- **Input fields**: Labeled inputs with focus states
 
 ### Step 3: Preview
 
@@ -221,8 +229,11 @@ Your page should:
 - [ ] Input uses BEM naming: `.field`, `.field__label`, `.field__input`
 - [ ] At least 2 button variants exist
 - [ ] Hover effects are visible on buttons
-- [ ] Focus effect is visible on inputs
+- [ ] Hover effects use `transition` for smooth animation
+- [ ] Cards have `box-shadow` for elevation on hover
+- [ ] Focus effect is visible on inputs with transition
 - [ ] Components look consistent (same border-radius, same spacing)
+- [ ] Components match the specification
 - [ ] No JavaScript is used
 
 ## 🎓 Key Concepts
@@ -250,18 +261,174 @@ Your page should:
 ```
 The element always has the **base class** AND the **modifier class**.
 
+### CSS Transitions — Smooth State Changes
+
+Transitions create smooth animations when a property changes (e.g. on hover):
+
+```css
+/* Shorthand: transition: property duration timing-function delay */
+.button {
+  background: var(--color-primary);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background: #1e40af;       /* Smooth color change */
+  transform: translateY(-2px); /* Slight lift */
+}
+```
+
+| Property | Example | Purpose |
+|----------|---------|--------|
+| `transition-property` | `background`, `all` | Which CSS property to animate |
+| `transition-duration` | `0.2s`, `300ms` | How long the animation takes |
+| `transition-timing-function` | `ease`, `ease-in-out`, `linear` | Speed curve |
+| `transition-delay` | `0s`, `0.1s` | Wait before starting |
+
+**Common transitions:**
+
+```css
+/* Card hover lift effect */
+.card {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Input focus glow */
+.field__input {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field__input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Link underline slide-in */
+nav a {
+  position: relative;
+  text-decoration: none;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+nav a:hover::after {
+  width: 100%;
+}
+```
+
+### CSS Transforms — Move, Scale, Rotate
+
+`transform` changes an element's visual appearance without affecting layout:
+
+| Function | Example | Effect |
+|----------|---------|--------|
+| `translateX/Y` | `translateY(-4px)` | Move up/down/left/right |
+| `scale` | `scale(1.05)` | Enlarge or shrink |
+| `rotate` | `rotate(3deg)` | Rotate clockwise |
+| `skew` | `skewX(5deg)` | Tilt/lean |
+
+```css
+/* Scale on hover */
+.card:hover {
+  transform: scale(1.02);     /* 2% bigger */
+}
+
+/* Rotate icon on hover */
+.icon:hover {
+  transform: rotate(15deg);
+}
+
+/* Combine multiple transforms */
+.button:active {
+  transform: translateY(1px) scale(0.98);  /* Press effect */
+}
+```
+
+> 💡 Always pair `transform` with `transition` for smooth animation. Without transition, the change is instant.
+
+### Pseudo-Elements — `::before` and `::after`
+
+Pseudo-elements inject visual content without adding HTML:
+
+```css
+/* Decorative line above section title */
+.section-title::before {
+  content: '';              /* Required! (even if empty) */
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+/* Required field indicator */
+.field__label--required::after {
+  content: ' *';            /* Adds a red asterisk */
+  color: #ef4444;
+}
+
+/* Tag/badge with ::before */
+.card--featured::before {
+  content: '★ Featured';
+  display: inline-block;
+  background: #f59e0b;
+  color: #ffffff;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+```
+
+**Rules for pseudo-elements:**
+- `content` is **required** (even `content: ''` for decorative)
+- They are `inline` by default — add `display: block` or `display: inline-block` if needed
+- They are children of the element (`.card::before` is inside `.card`)
+- Cannot be used on `<img>`, `<input>`, or `<br>` (void/replaced elements)
+
+### Box-Shadow — Depth and Elevation
+
+```css
+/* box-shadow: x-offset y-offset blur spread color */
+.card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);           /* Subtle */
+}
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);         /* Elevated */
+}
+.field__input:focus {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);      /* Focus ring */
+}
+```
+
 ## 🚀 Bonus Challenges
 
 1. **Button sizes**: Create `.button--sm` (small) and `.button--lg` (large) modifiers
 2. **Card with image**: Add a `.card__image` element at the top of the card
 3. **Input states**: Create `.field__input--error` with a red border and error message
-4. **Component page**: Create a full "style guide" page showing all components and variants
-5. **Figma match**: Export a button from Figma and compare it pixel-by-pixel with yours
+4. **Animated underline**: Use `::after` pseudo-element to create a sliding underline on nav links
+5. **Press effect**: Add `transform: scale(0.97)` on `.button:active` for a click feel
+6. **Skeleton loading**: Create a `.card--loading` variant with a pulsing gray background using `@keyframes`
+7. **Component page**: Create a full "style guide" page showing all components and variants
+8. **Design match**: Compare your components pixel-by-pixel with the reference design
 
 ## 📚 Resources
 
 - [BEM — Block Element Modifier](https://getbem.com/)
 - [MDN — Organizing your CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing)
+- [MDN — CSS Transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [MDN — CSS Transforms](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
+- [MDN — Pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
 - [CSS-Tricks — BEM 101](https://css-tricks.com/bem-101/)
 - [Refactoring UI](https://www.refactoringui.com/) — Design tips for developers
 
@@ -271,6 +438,8 @@ The element always has the **base class** AND the **modifier class**.
 2. What is the advantage of BEM naming over generic class names like `.blue-btn`?
 3. How would you organize components in a real project with 20+ components?
 4. What makes a component "reusable" vs "specific to one page"?
+5. Why should you always pair `transform` with `transition`?
+6. When would you use `::before`/`::after` instead of adding a real HTML element?
 
 ## 💡 Common Mistakes
 
@@ -279,6 +448,9 @@ The element always has the **base class** AND the **modifier class**.
 - **Inconsistent naming**: Pick BEM and stick with it throughout the project
 - **Hardcoded colors in components**: Use CSS variables so components adapt to theme changes
 - **No focus styles on inputs**: Always style `:focus` for accessibility
+- **Transitioning `all`**: Avoid `transition: all 0.3s` — be explicit about which properties to animate
+- **Forgetting `content` on pseudo-elements**: `::before` and `::after` won't show without `content`
+- **No transition on default state**: Put `transition` on the base state, not the `:hover` state
 
 ## 🎯 Success Criteria
 
@@ -286,12 +458,13 @@ You've successfully completed this exercise when:
 - ✅ All 3 components are styled (Button, Card, Input)
 - ✅ BEM naming is used consistently
 - ✅ At least 2 button variants exist
-- ✅ Components look similar to the Figma design
-- ✅ Hover and focus states are implemented
+- ✅ Components look similar to the design spec
+- ✅ Hover and focus states use smooth transitions
+- ✅ At least 1 component uses `box-shadow` for elevation
 - ✅ You created at least 1 new variant yourself
 
 ---
 
-**Previous**: [Lab 04: Responsive Design](../lab-04-responsive/) ←
-**Next**: [Lab 06: JavaScript Interactions](../lab-06-javascript-interactions/) →
+**Previous**: [Lab 05: Responsive Design](../lab-05-responsive/) ←
+**Next**: [Lab 07: JavaScript Interactions](../lab-07-javascript-interactions/) →
 **[Back to Course Home](../README.md)**

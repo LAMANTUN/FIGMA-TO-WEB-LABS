@@ -68,6 +68,23 @@ Before diving into the hands-on labs, study these **theory modules** that give y
 
 > 💡 **Recommended reading order:** Course 01 → 02 → 03 → 04, then start the labs.
 
+## Course Elements Covered in Labs
+
+Each lab applies specific course module topics. This table shows where theory meets practice:
+
+| Lab | Course 01 — Design Fundamentals | Course 02 — Figma for Developers | Course 03 — Design-to-Code Workflow | Course 04 — Design Systems |
+|---|---|---|---|---|
+| **00 — Figma Basics** | CRAP principles, color theory, typography, whitespace, visual hierarchy | Figma interface, Dev Mode, inspecting properties | — | — |
+| **01 — HTML Structure** | Alignment, proximity, visual hierarchy | — | Step 4 — Plan: visual sections → HTML | — |
+| **02 — CSS Basics** | Color theory (HSL), typography, whitespace | Extracting colors, fonts, spacing from Dev Mode | Step 3 — Extract: design tokens → CSS variables | — |
+| **03 — CSS Positioning** | Proximity (layering), contrast (z-index), alignment | — | Step 5 — Build: layout phase | — |
+| **04 — Flexbox Layout** | Alignment, repetition, proximity | Auto Layout → Flexbox mapping | Step 5 — Build: layout phase | — |
+| **05 — Responsive Design** | Contrast (screen adaptation), whitespace | Mobile vs desktop frames | Step 5 — Build: responsive phase | — |
+| **06 — UI Components** | Repetition, contrast (variants) | Components & variants in Dev Mode | — | Atomic Design, BEM, component library |
+| **07 — JavaScript** | — | — | Step 5 — Build: interactivity phase | Patterns: modal, accordion, form validation |
+| **08 — Sass/SCSS** | — | — | Step 3 — Extract + Step 7 — Refine | Design tokens, component organization |
+| **09 — Mini Project** | ✅ All principles | ✅ Full Dev Mode workflow | ✅ Complete 7-step pipeline | ✅ Atomic Design in practice |
+
 ## Exercise Structure
 
 Each exercise folder contains:
@@ -92,26 +109,27 @@ Getting started with Figma from a developer perspective. Theory only — no code
 
 ### 01. HTML & CSS Fundamentals
 
-- [Lab 01: HTML Structure](lab-01-html-structure/) — Translate a Figma layout into semantic HTML
-- [Lab 02: CSS Basics](lab-02-css-basics/) — Apply colors & typography from Figma
-- [Lab 03: Flexbox Layout](lab-03-flexbox-layout/) — Reproduce a Figma layout with Flexbox
+- [Lab 01: HTML Structure](lab-01-html-structure/) — Build semantic HTML for a landing page, including forms & tables (⭐⭐ Medium)
+- [Lab 02: CSS Basics](lab-02-css-basics/) — Colors, typography, CSS units, selectors & specificity (⭐⭐ Medium)
+- [Lab 03: CSS Positioning](lab-03-css-positioning/) — Display, position, z-index & overflow (⭐⭐ Medium)
+- [Lab 04: Flexbox Layout](lab-04-flexbox-layout/) — Build multi-column layouts with Flexbox (⭐⭐ Medium)
 
 ### 02. Responsive & Components
 
-- [Lab 04: Responsive Design](lab-04-responsive/) — Mobile-first responsive integration
-- [Lab 05: UI Components](lab-05-ui-components/) — Build reusable components from Figma
+- [Lab 05: Responsive Design](lab-05-responsive/) — Mobile-first responsive design (⭐⭐ Medium)
+- [Lab 06: UI Components](lab-06-ui-components/) — Reusable components with BEM, transitions & pseudo-elements (⭐⭐ Medium)
 
 ### 03. Interactivity
 
-- [Lab 06: JavaScript Interactions](lab-06-javascript-interactions/) — Add interactivity with vanilla JS
+- [Lab 07: JavaScript Interactions](lab-07-javascript-interactions/) — DOM manipulation, form validation, accordion, tabs & modal (⭐⭐ Medium)
 
-### 03. Professional Tooling
+### 04. Professional Tooling
 
-- [Lab 07: CSS to Sass/SCSS](lab-07-sass-scss/) — Convert CSS to SCSS with variables, nesting, mixins & partials
+- [Lab 08: CSS to Sass/SCSS](lab-08-sass-scss/) — Variables, nesting, mixins & partials (⭐⭐ Medium)
 
-### 04. Integration Project
+### 05. Figma Integration Project
 
-- [Lab 08: Mini Project](lab-08-mini-project/) — Integrate a full Figma page from scratch (capstone)
+- [Lab 09: Mini Project](lab-09-mini-project/) — Integrate a real Figma design into a complete landing page (⭐⭐⭐ Intermediate)
 
 ## Figma Design Files
 
@@ -128,7 +146,7 @@ The official Figma design for this course is available here:
 2. Log in with your free Figma account
 3. Click **"Duplicate to your drafts"** (top-right) to get your own editable copy
 4. Switch to **Dev Mode** (toggle in top-right) to inspect spacing, colors, and fonts
-5. Use this design as the reference for **Lab 08 — Mini Project**
+5. Use this design as the reference for **Lab 09 — Mini Project**
 
 > 💡 **Tip**: The `course-02-figma-for-developers/design/` folder also contains HTML reference pages that you can open in your browser to see the design.
 
@@ -160,38 +178,45 @@ Your report must include the following sections:
    - List of CSS variables you defined
    - Comparison: your page vs. the reference design
 
-5. **Lab 03 — Flexbox Layout**
+5. **Lab 03 — CSS Positioning & Display**
+   - Screenshot showing elements with different position values
+   - Explanation of when to use relative, absolute, fixed, and sticky
+   - Demonstration of stacking with z-index
+
+6. **Lab 04 — Flexbox Layout**
    - Screenshot of your layout
    - Explanation of each Flexbox rule you used
    - What you changed during the mini-exercises
 
-6. **Lab 04 — Responsive Design**
+7. **Lab 05 — Responsive Design**
    - Screenshots on mobile width AND desktop width
    - Your media query code with a brief explanation
    - How you tested responsiveness
 
-7. **Lab 05 — UI Components**
+8. **Lab 06 — UI Components**
    - Screenshot of your component library
    - Explanation of your BEM naming choices
    - The new variant(s) you created
+   - Examples of transitions and pseudo-elements used
 
-8. **Lab 06 — JavaScript Interactions**
+9. **Lab 07 — JavaScript Interactions**
    - Screenshot of the modal open and closed
    - Your JavaScript code with explanations
-   - Any bonus interactions you implemented
+   - Form validation demonstration
+   - Any bonus interactions you implemented (accordion, tabs, etc.)
 
-9. **Lab 07 — CSS to Sass/SCSS**
+10. **Lab 08 — CSS to Sass/SCSS**
     - Screenshots of your SCSS file structure (partials)
     - Comparison: original CSS vs compiled SCSS output
     - Explanation of the mixins you created and why
     - Reflection: when is Sass worth the extra tooling?
 
-10. **Lab 08 — Mini Project**
+11. **Lab 09 — Mini Project**
     - Screenshots of the final page (mobile + desktop)
     - Self-evaluation against the grading criteria
     - What you learned and what you would improve
 
-11. **Conclusion**
+12. **Conclusion**
     - Summary of what you learned throughout the course
     - Your favorite lab and why
     - Skills you plan to develop next

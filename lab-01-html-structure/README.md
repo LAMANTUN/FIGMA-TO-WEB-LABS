@@ -1,28 +1,42 @@
-# Lab 01: HTML Structure — From Figma to Semantic HTML
+# Lab 01: HTML Structure — Semantic HTML for a Landing Page
 
-**Difficulty**: ⭐ Beginner
-**Time**: 20–30 minutes
-**Concepts**: Semantic HTML, page structure, HTML comments, Figma layout analysis
+**Difficulty**: ⭐⭐ Medium
+**Time**: 30–45 minutes
+**Concepts**: Semantic HTML, page structure, HTML comments, accessibility, heading hierarchy
 
 ## 🎯 Learning Objectives
 
-- Analyze a Figma layout and identify HTML sections
-- Use semantic HTML5 tags (`header`, `main`, `section`, `footer`, `nav`)
-- Write clean, commented HTML structure
+- Analyze a page layout and identify appropriate HTML sections
+- Use semantic HTML5 tags (`header`, `main`, `section`, `footer`, `nav`, `article`)
+- Write clean, well-commented HTML structure with proper heading hierarchy
 - Understand the connection between visual design and HTML hierarchy
+- Apply accessibility best practices (ARIA landmarks, alt attributes, logical tab order)
 
-## 📋 Exercise Description
+## � Course Elements Covered
 
-You will look at a simple landing page design and translate its visual structure into **semantic HTML only** — no CSS yet. The goal is to build a solid HTML skeleton that matches the design's layout.
+| Course Module | Topics Applied in This Lab |
+|---|---|
+| [01 — Design Fundamentals](../course-01-design-fundamentals/) | Alignment, proximity (grouping related content), visual hierarchy (heading levels) |
+| [03 — Design-to-Code Workflow](../course-03-design-to-code-workflow/) | Step 4 — Plan: mapping visual sections → HTML structure, semantic element choices |
+
+## �📋 Exercise Description
+
+You will build a complete landing page structure using **semantic HTML only** — no CSS yet. The goal is to produce a solid, accessible HTML skeleton from a written design brief.
 
 > 💡 Think of HTML as the **bones** of a page. CSS is the skin. JavaScript is the muscles. You always start with the bones.
 
 ## 🛠️ Setup
 
-### Step 1: Open the Reference Design
+### Step 1: Read the Design Brief
 
-1. Open `../course-02-figma-for-developers/design/reference-landing-page.html` in your browser (if available) **or** look at the Figma design provided by your instructor
-2. Identify the main sections visually before coding
+Build a landing page for a fictional product with these sections:
+- **Header**: Logo text + 3 navigation links (Home, Features, Contact)
+- **Hero section**: Main heading, subtitle paragraph, call-to-action link
+- **Features section**: Section heading + 3 feature items (icon placeholder, title, description)
+- **Testimonials section**: 2 customer quotes with names
+- **Contact form**: A form with name, email, message, and a submit button
+- **Pricing table**: A simple table with 3 plans
+- **Footer**: Contact info + copyright
 
 ### Step 2: Open the Starter File
 
@@ -39,12 +53,13 @@ You will look at a simple landing page design and translate its visual structure
 
 ### Step 1: Analyze the Figma Layout
 
-Before writing any code, look at the design and answer these questions:
+Before writing any code, plan your page structure on paper or in a comment:
 
 1. What is at the **top** of the page? → This is the `<header>`
 2. What is the **main content**? → This goes inside `<main>`
 3. How many **sections** do you see? → Each becomes a `<section>`
-4. What is at the **bottom**? → This is the `<footer>`
+4. Are there self-contained items? → Consider `<article>` for cards/quotes
+5. What is at the **bottom**? → This is the `<footer>`
 
 **Write this down:**
 ```
@@ -52,8 +67,9 @@ Page structure:
 ├── header (logo + navigation)
 ├── main
 │   ├── section: hero (title, subtitle, button)
-│   └── section: features (3 items)
-└── footer (contact info)
+│   ├── section: features (3 feature articles)
+│   └── section: testimonials (2 blockquotes)
+└── footer (contact info + copyright)
 ```
 
 ### Step 2: Create the HTML Skeleton
@@ -113,14 +129,146 @@ The header typically contains a logo and navigation links:
 
 1. Add a `<section>` with an `id="features"`
 2. Add an `<h2>` for the section title
-3. Add a `<ul>` with 3 `<li>` items for the features
+3. Use `<article>` for each feature item (not just `<li>`) — each feature has a heading, icon placeholder, and description
+4. Use an `<h3>` inside each article for the feature title
 
-### Step 6: Build the Footer
+### Step 6: Build the Testimonials Section
+
+1. Add a `<section>` with an `id="testimonials"`
+2. Add an `<h2>` for the section title
+3. Use `<blockquote>` for each quote, with a `<cite>` for the author name
+
+### Step 7: Build the Footer
 
 1. Add a `<footer>` with an `id="contact"`
-2. Add a `<p>` with contact information
+2. Add a `<p>` with contact information and a copyright notice
+3. Add a `<small>` element for the copyright line
 
-### Step 7: Add HTML Comments
+### Step 8: Build a Contact Form
+
+Forms are one of the most important HTML concepts. Build a form section:
+
+1. Add a `<section>` with an `id="contact-form"`
+2. Add a `<form>` with `action="#"` and `method="POST"`
+3. Wrap related fields inside a `<fieldset>` with a `<legend>`
+4. Use `<label>` elements linked to inputs with `for`/`id`
+5. Use appropriate input types: `text`, `email`, `textarea`
+6. Add a `<button type="submit">`
+
+```html
+<section id="contact-form">
+  <h2>Get in Touch</h2>
+  <form action="#" method="POST">
+    <fieldset>
+      <legend>Contact Information</legend>
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your name" />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+      <label for="subject">Subject</label>
+      <select id="subject" name="subject">
+        <option value="">Choose a topic...</option>
+        <option value="general">General Inquiry</option>
+        <option value="support">Support</option>
+        <option value="feedback">Feedback</option>
+      </select>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required placeholder="Your message..."></textarea>
+
+      <label>
+        <input type="checkbox" name="newsletter" /> Subscribe to newsletter
+      </label>
+
+      <button type="submit">Send Message</button>
+      <button type="reset">Clear Form</button>
+    </fieldset>
+  </form>
+</section>
+```
+
+#### HTML Form Elements Cheat Sheet
+
+| Element | Purpose |
+|---------|--------|
+| `<form>` | Wraps the entire form, defines `action` and `method` |
+| `<fieldset>` | Groups related fields together |
+| `<legend>` | Title for a `<fieldset>` group |
+| `<label>` | Text label linked to a field (`for` + `id`) |
+| `<input>` | Single-line input (type: text, email, password, number, date, checkbox, radio) |
+| `<textarea>` | Multi-line text input |
+| `<select>` + `<option>` | Dropdown/select menu |
+| `<button>` | Clickable button (`type="submit"`, `type="reset"`, `type="button"`) |
+
+#### Common Input Types
+
+| Type | Example | Purpose |
+|------|---------|---------|
+| `text` | `<input type="text">` | General text |
+| `email` | `<input type="email">` | Email with built-in validation |
+| `password` | `<input type="password">` | Hidden characters |
+| `number` | `<input type="number" min="1" max="10">` | Numeric input with range |
+| `date` | `<input type="date">` | Date picker |
+| `checkbox` | `<input type="checkbox">` | True/false toggle |
+| `radio` | `<input type="radio" name="plan">` | Pick one from a group |
+| `tel` | `<input type="tel">` | Phone number |
+
+#### HTML Validation Attributes
+
+| Attribute | Effect |
+|-----------|--------|
+| `required` | Field must be filled |
+| `minlength` / `maxlength` | Text length limits |
+| `min` / `max` | Number/date range |
+| `pattern` | Regex pattern match |
+| `placeholder` | Hint text inside the field |
+
+### Step 9: Build a Simple Pricing Table
+
+Tables are for **tabular data** (not layout). Add a pricing section:
+
+```html
+<section id="pricing">
+  <h2>Pricing Plans</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Free</th>
+        <th>Pro</th>
+        <th>Team</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Projects</td>
+        <td>3</td>
+        <td>Unlimited</td>
+        <td>Unlimited</td>
+      </tr>
+      <tr>
+        <td>Storage</td>
+        <td>1 GB</td>
+        <td>50 GB</td>
+        <td>200 GB</td>
+      </tr>
+      <tr>
+        <td>Support</td>
+        <td>Community</td>
+        <td>Email</td>
+        <td>Priority</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+```
+
+> 💡 Use `<table>` only for data, never for page layout. Use `<thead>` / `<tbody>` for proper structure. Use `<th>` for header cells.
+
+### Step 10: Add HTML Comments and ARIA
 
 Go through your entire file and add comments before each major section:
 
@@ -128,8 +276,13 @@ Go through your entire file and add comments before each major section:
 <!-- Site header: logo and navigation -->
 <!-- Hero section: main message and call to action -->
 <!-- Features section: three key points -->
-<!-- Footer: contact information -->
+<!-- Testimonials section: customer quotes -->
+<!-- Contact form: user input form -->
+<!-- Pricing table: plan comparison -->
+<!-- Footer: contact information and copyright -->
 ```
+
+Also add `aria-label` attributes to your `<nav>` and landmark sections where helpful.
 
 ## 💻 Expected Code Structure
 
@@ -156,13 +309,28 @@ Go through your entire file and add comments before each major section:
 
       <!-- Features section -->
       <section id="features">
-        ...title and list...
+        ...title and 3 feature articles...
+      </section>
+
+      <!-- Testimonials section -->
+      <section id="testimonials">
+        ...title and 2 blockquotes...
+      </section>
+
+      <!-- Contact form -->
+      <section id="contact-form">
+        ...form with fieldset, inputs, textarea, button...
+      </section>
+
+      <!-- Pricing table -->
+      <section id="pricing">
+        ...table with thead and tbody...
       </section>
     </main>
 
     <!-- Footer -->
     <footer id="contact">
-      ...contact info...
+      ...contact info and copyright...
     </footer>
   </body>
 </html>
@@ -174,19 +342,31 @@ When you open your page in the browser, you should see:
 
 1. A logo and navigation links at the top
 2. A big heading with some text and a link
-3. A section with 3 feature items
-4. Contact information at the bottom
-5. **No styling** — just raw HTML content, readable and structured
+3. A section with 3 feature items (each with its own heading)
+4. A section with 2 testimonial quotes
+5. A contact form with labeled fields and a submit button
+6. A pricing table with rows and columns
+7. Contact information and copyright at the bottom
+6. **No styling** — just raw HTML content, readable and structured
 
 ## 🧪 Testing Checklist
 
 - [ ] The page has exactly ONE `<h1>` tag
 - [ ] I used `<header>`, `<main>`, and `<footer>` correctly
 - [ ] I used `<section>` for each content block
-- [ ] I used `<nav>` for the navigation
+- [ ] I used `<article>` for self-contained items (features)
+- [ ] I used `<blockquote>` and `<cite>` for testimonials
+- [ ] I used `<nav>` for the navigation with `aria-label`
 - [ ] All links have `href` attributes
+- [ ] Heading hierarchy is correct (h1 → h2 → h3, no skipping)
+- [ ] Contact form uses `<form>`, `<fieldset>`, `<legend>`, `<label>`
+- [ ] All form inputs have associated `<label>` elements
+- [ ] The form uses appropriate input types (text, email, textarea)
+- [ ] `required` attribute is used on mandatory fields
+- [ ] Pricing table uses `<table>`, `<thead>`, `<tbody>`, `<th>`, `<td>`
 - [ ] HTML comments explain each section
 - [ ] The page is readable without CSS
+- [ ] HTML validates at [validator.w3.org](https://validator.w3.org/)
 - [ ] No errors in the browser console (F12 → Console)
 
 ## 🎓 Key Concepts
@@ -228,8 +408,8 @@ When you open your page in the browser, you should see:
 
 1. What happens if you use `<div>` everywhere instead of semantic tags?
 2. Why should there be only one `<h1>` per page?
-3. How does the Figma layout map to your HTML structure?
-4. What is the difference between `<section>` and `<article>`?
+3. When should you use `<article>` vs `<section>`?
+4. Why is heading hierarchy (h1 → h2 → h3) important for accessibility?
 
 ## 💡 Common Mistakes
 

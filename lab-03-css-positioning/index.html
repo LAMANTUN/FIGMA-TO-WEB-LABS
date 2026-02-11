@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 03 — CSS Positioning & Display</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Sticky header -->
+    <header class="site-header">
+      <div class="logo">BrandName</div>
+      <nav>
+        <a class="nav-link" href="#display">Display</a>
+        <a class="nav-link" href="#cards">Cards</a>
+        <a class="nav-link" href="#overflow">Overflow</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <!-- Section: Display property demo -->
+      <section id="display" class="section">
+        <h1>CSS Positioning & Display</h1>
+        <p>This page demonstrates block, inline, inline-block, positioning, z-index, and overflow.</p>
+
+        <h2>Display: block vs inline vs inline-block</h2>
+        <div class="demo-box">
+          <span class="tag tag--block">Block element (full width)</span>
+          <span class="tag tag--inline">Inline A</span>
+          <span class="tag tag--inline">Inline B</span>
+          <span class="tag tag--inline-block">Inline-block A</span>
+          <span class="tag tag--inline-block">Inline-block B</span>
+        </div>
+      </section>
+
+      <!-- Section: Cards with badges (absolute positioning) -->
+      <section id="cards" class="section">
+        <h2>Cards with Positioned Badges</h2>
+        <div class="card-grid">
+          <article class="card">
+            <span class="card__badge">New</span>
+            <h3 class="card__title">Relative + Absolute</h3>
+            <p class="card__text">The card is <code>position: relative</code>. The badge is <code>position: absolute</code>.</p>
+          </article>
+
+          <article class="card">
+            <span class="card__badge card__badge--sale">-20%</span>
+            <h3 class="card__title">Sale Badge</h3>
+            <p class="card__text">Badges can hold any content and be placed anywhere on the card.</p>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">
+              <span class="tooltip-wrapper">
+                Hover me for a tooltip
+                <span class="tooltip">This is a tooltip using absolute positioning!</span>
+              </span>
+            </h3>
+            <p class="card__text">Tooltips use <code>position: absolute</code> relative to an inline wrapper.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Section: Overflow demo -->
+      <section id="overflow" class="section">
+        <h2>Overflow Control</h2>
+        <div class="scrollable">
+          <p>This container has <code>max-height</code> and <code>overflow-y: auto</code>.</p>
+          <p>Scroll down to see more content.</p>
+          <ul>
+            <li>Item 1 — HTML Structure</li>
+            <li>Item 2 — CSS Variables</li>
+            <li>Item 3 — Box Model</li>
+            <li>Item 4 — Display Property</li>
+            <li>Item 5 — CSS Positioning</li>
+            <li>Item 6 — Flexbox</li>
+            <li>Item 7 — CSS Grid</li>
+            <li>Item 8 — Responsive Design</li>
+            <li>Item 9 — Transitions</li>
+            <li>Item 10 — Animations</li>
+            <li>Item 11 — Sass/SCSS</li>
+            <li>Item 12 — JavaScript DOM</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Spacer to enable scroll for sticky demo -->
+      <section class="section">
+        <h2>Scroll Down</h2>
+        <p>Keep scrolling to test the sticky header and the fixed "Back to Top" button.</p>
+        <p style="min-height: 600px; padding-top: 200px; color: #94a3b8;">
+          ↑ The header should be stuck at the top of your viewport.<br />
+          ↓ The "Back to Top" button should be visible in the bottom-right corner.
+        </p>
+      </section>
+    </main>
+
+    <!-- Fixed "Back to Top" button -->
+    <a href="#" class="back-to-top" title="Back to top">↑</a>
+  </body>
+</html>

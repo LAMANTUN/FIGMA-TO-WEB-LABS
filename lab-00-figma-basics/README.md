@@ -12,7 +12,14 @@
 - Identify page sections and reusable components
 - Build a "design spec sheet" that you will use when coding
 
-## 📋 Exercise Description
+## � Course Elements Covered
+
+| Course Module | Topics Applied in This Lab |
+|---|---|
+| [01 — Design Fundamentals](../course-01-design-fundamentals/) | CRAP principles, color theory basics, typography vocabulary, whitespace, visual hierarchy |
+| [02 — Figma for Developers](../course-02-figma-for-developers/) | Figma interface, Dev Mode, inspecting properties, reading the CSS panel, layers panel |
+
+## �📋 Exercise Description
 
 In this lab, you will **not write any code**. Instead, you will learn how to read a Figma design file and extract all the information you need before writing a single line of HTML or CSS.
 
