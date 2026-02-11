@@ -1,10 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Playfair+Display:wght@700&display=swap");
 
 :root {
+  /* Colors */
   --color-bg: #f9fafb;
   --color-text: #111827;
   --color-muted: #6b7280;
   --color-primary: #1d4ed8;
+
+  /* Fonts */
   --font-body: "Source Sans 3", Arial, sans-serif;
   --font-heading: "Playfair Display", "Times New Roman", serif;
 }
@@ -19,34 +22,44 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
+  font-size: 16px;
   line-height: 1.6;
 }
 
-header {
-  margin-bottom: 32px;
-}
-
+/* Header basic readability (pas du layout avancé, juste propre) */
 .logo {
   font-weight: 700;
-  margin-bottom: 12px;
-}
-
-nav a {
-  margin-right: 12px;
-  color: var(--color-muted);
-  text-decoration: none;
+  font-size: 18px;
+  color: var(--color-text);
 }
 
 h1,
 h2 {
   font-family: var(--font-heading);
   color: var(--color-text);
-  margin-bottom: 8px;
+  margin: 0 0 8px 0;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 24px;
 }
 
 p {
   color: var(--color-muted);
-  margin-top: 0;
+  margin: 0 0 16px 0;
+}
+
+nav a {
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 .button {
@@ -57,4 +70,18 @@ p {
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
+  border-radius: 6px;
+}
+
+.button:hover {
+  background: #1e40af;
+}
+
+/* Important: les boutons/inputs n'héritent pas toujours des fonts */
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
 }

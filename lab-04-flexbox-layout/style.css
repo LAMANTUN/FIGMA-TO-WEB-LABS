@@ -1,10 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Playfair+Display:wght@700&display=swap");
 
 :root {
-  --color-bg: #f8fafc;
-  --color-text: #0f172a;
-  --color-muted: #64748b;
-  --color-primary: #2563eb;
+  --color-bg: #f9fafb;
+  --color-text: #111827;
+  --color-muted: #6b7280;
+  --color-primary: #1d4ed8;
+  --color-border: #e2e8f0;
+
+  --font-body: "Source Sans 3", Arial, sans-serif;
+  --font-heading: "Playfair Display", "Times New Roman", serif;
 }
 
 * {
@@ -14,66 +18,119 @@
 body {
   margin: 0;
   padding: 24px;
-  font-family: "Source Sans 3", Arial, sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
 }
 
+h1,
+h2 {
+  font-family: var(--font-heading);
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+p {
+  color: var(--color-muted);
+}
+
+/* Center page content */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===========================
+   HEADER FLEXBOX
+   =========================== */
+
 .site-header {
-  display: flex; /* Make header a flex container */
-  justify-content: space-between; /* Space between logo and links */
-  align-items: center; /* Align items vertically */
+  display: flex; /* makes header a flex container */
+  justify-content: space-between; /* logo left, nav right */
+  align-items: center; /* center vertically */
   margin-bottom: 32px;
 }
 
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Nav links in a row */
 .nav-links {
-  display: flex; /* Align links on one row */
-  gap: 16px; /* Space between links */
+  display: flex; /* puts links side by side */
+  gap: 16px; /* spacing between links */
 }
 
 .nav-links a {
-  color: var(--color-muted);
   text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
 }
 
+.nav-links a:hover {
+  color: var(--color-primary);
+}
+
+/* ===========================
+   HERO FLEXBOX
+   =========================== */
+
 .hero {
-  display: flex; /* Place text and image side by side */
-  gap: 24px; /* Space between text and image */
-  align-items: center; /* Align items vertically */
-  margin-bottom: 32px;
+  display: flex; /* text + image side by side */
+  gap: 24px; /* space between text and image */
+  align-items: center; /* vertical alignment */
+  margin-bottom: 48px;
 }
 
 .hero-text {
-  flex: 1; /* Allow text to take available space */
+  flex: 1; /* text takes available space */
+}
+
+.hero-image {
+  flex: 1; /* image block takes available space */
 }
 
 .hero-image img {
-  max-width: 100%;
+  width: 100%;
+  border-radius: 12px;
   display: block;
 }
 
+/* CTA button */
 .button {
   display: inline-block;
-  margin-top: 12px;
   padding: 10px 16px;
   background: var(--color-primary);
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
+  border-radius: 6px;
 }
 
+/* ===========================
+   FEATURES FLEXBOX
+   =========================== */
+
 .features {
-  display: flex; /* Put cards in a row */
-  gap: 16px; /* Space between cards */
+  display: flex; /* cards side by side */
+  gap: 16px; /* spacing between cards */
 }
 
 .card {
-  flex: 1; /* Make cards equal width */
+  flex: 1; /* all cards same width */
   padding: 16px;
   background: #ffffff;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
 }
 
 .card p {
-  color: var(--color-muted);
+  margin: 0;
 }
